@@ -19,6 +19,7 @@ class MainWindow(QtWidgets.QWidget):
         self.ed_mounth.setAlignment(QtCore.Qt.AlignCenter)
         self.btn_mounth = QtWidgets.QPushButton(self.win)
         self.btn_mounth.setText("Задати період")
+        self.btn_mounth.setStyleSheet("QPushButton {font-weight: bold;}")
         self.group = QtWidgets.QGroupBox(self.win)
         self.head_group = QtWidgets.QHBoxLayout(self.win)
         self.head_group.addWidget(self.text_hd)
@@ -60,7 +61,10 @@ class MainWindow(QtWidgets.QWidget):
         self.i_group.setLayout(self.inf_group)
         self.i_group.move(10, 106)
         self.i_group.setTitle("Інформація про фонд")
+        self.i_group.setStyleSheet("QGroupBox {color:red}")
         self.win.show()
+    def InfoAboutFond(self):
+
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
