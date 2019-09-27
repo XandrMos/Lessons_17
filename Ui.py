@@ -28,6 +28,9 @@ class MainWindow(QtWidgets.QWidget):
         self.group.setLayout(self.head_group)
         self.group.move(10, 36)
         self.group.resize(380, 60)
+        self.InfoAboutFond()
+        self.win.show()
+    def InfoAboutFond(self):
         self.inf_lbl_1 = QtWidgets.QLabel(self.win)
         self.inf_lbl_1.setText("Капітал фонда:")
         self.inf_lbl_1.setAlignment(QtCore.Qt.AlignRight)
@@ -62,8 +65,7 @@ class MainWindow(QtWidgets.QWidget):
         self.i_group.move(10, 106)
         self.i_group.setTitle("Інформація про фонд")
         self.i_group.setStyleSheet("QGroupBox {color:red}")
-        self.win.show()
-    def InfoAboutFond(self):
+
 
 
 if __name__ == "__main__":
