@@ -259,15 +259,25 @@ class MainWindow(QtWidgets.QWidget):
             row += 1
 
     def on_clicked(self):
-        if self.push_btn_mounth == 0:
-            self.InfoAboutFond()
-            h = self.InfoAboutIvestPorfel()
-            self.info_profit(h)
-            self.GeneretTernds()
-            self.Banks_widget()
-            self.Metals_widget()
-            self.Actions_widget()
-            self.push_btn_mounth = 1
+        # if self.push_btn_mounth == 0:
+        #     self.InfoAboutFond()
+        #     h = self.InfoAboutIvestPorfel()
+        #     self.info_profit(h)
+        #     self.GeneretTernds()
+        #     self.Banks_widget()
+        #     self.Metals_widget()
+        #     self.Actions_widget()
+        #     self.push_btn_mounth = 1
+
+        self.InfoAboutFond()
+        h = self.InfoAboutIvestPorfel()
+        self.info_profit(h)
+        self.GeneretTernds()
+        self.Banks_widget()
+        self.Metals_widget()
+        self.Actions_widget()
+        self.push_btn_mounth = 1
+        self.btn_mounth.blockSignals(True)
 
 
 
