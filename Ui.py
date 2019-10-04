@@ -82,6 +82,7 @@ class MainWindow(QtWidgets.QWidget):
             self.box_port.setTitle("Інформація про портфель фонду")
             self.box_port.resize(265, 56)
             self.box_port.setStyleSheet("QGroupBox {font-weight: bold;}")
+            self.box_port.show()
             return 56
         else:
             self.box_port = QtWidgets.QGroupBox(self.win)
@@ -92,9 +93,15 @@ class MainWindow(QtWidgets.QWidget):
             self.box_port.setStyleSheet("QGroupBox {font-weight: bold;}")
             self.widgets = []
             self.build_widgets_port_fond()
-            self.box_port.resize(265, len(self.widgets) * 32)
+            if len(self.widgets) == 1:
+                h = 58
+            elif len(self.widgets) == 1:
+                h = 48
+            else:
+                h = 32
+            self.box_port.resize(265, len(self.widgets) * h)
             self.box_port.show()
-            return len(self.widgets) * 32
+            return len(self.widgets) * h
     def build_widgets_port_fond(self):
         row = 0
         for samp in fond.portfel.keys():
@@ -146,16 +153,22 @@ class MainWindow(QtWidgets.QWidget):
         self.box_profit.setTitle("Прибуток інвестеціного фонда")
         self.box_profit.setStyleSheet("QGroupBox {font-weight: bold;}")
         self.box_profit.show()
-    def GeneretTernds(self):
+    def GeneretTrends(self):
         self.banks = []
         self.metals = []
         self.actions = []
         for i in range(2):
             bnk = ClassFond.Bank()
+            while self.banks != [] and bnk.bank_name == self.banks[0].bank_name:
+                bnk = ClassFond.Bank()
             self.banks.append(bnk)
             mtls = ClassFond.BankMetal()
+            while self.metals != [] and mtls.BankMetal_name == self.metals[0].BankMetal_name:
+                mtls = ClassFond.BankMetal()
             self.metals.append(mtls)
             act = ClassFond.Actions()
+            while self.actions != [] and act.Actions_name == self.actions[0].Actions_name:
+                act = ClassFond.Actions()
             self.actions.append(act)
         self.box_trends = QtWidgets.QGroupBox(self.win)
         self.trends_group = QtWidgets.QGridLayout()
@@ -198,12 +211,12 @@ class MainWindow(QtWidgets.QWidget):
         self.box_Banks_widget = QtWidgets.QGroupBox(self.win)
         self.Banks_widget_group = QtWidgets.QGridLayout()
         self.box_Banks_widget.setLayout(self.Banks_widget_group)
-        self.box_Banks_widget.move(400, 122 + len(self.widgets_trends) * 31)
+        self.box_Banks_widget.move(300, 122 + len(self.widgets_trends) * 31)
         self.box_Banks_widget.setTitle("Депозити")
         self.box_Banks_widget.setStyleSheet("QGroupBox {font-weight: bold;}")
         self.widgets_Banks_widget = []
         self.build_widgets_Banks_widget()
-        self.box_Banks_widget.resize(256, 106)
+        self.box_Banks_widget.resize(176, 106)
         self.box_Banks_widget.show()
     def build_widgets_Banks_widget(self):
         row = 0
@@ -219,12 +232,12 @@ class MainWindow(QtWidgets.QWidget):
         self.box_Metals_widget = QtWidgets.QGroupBox(self.win)
         self.Metals_widget_group = QtWidgets.QGridLayout()
         self.box_Metals_widget.setLayout(self.Metals_widget_group)
-        self.box_Metals_widget.move(400, 2 * 122 +len(self.widgets_trends) * 31)
+        self.box_Metals_widget.move(300, 2 * 122 +len(self.widgets_trends) * 31)
         self.box_Metals_widget.setTitle("Банківські метали")
         self.box_Metals_widget.setStyleSheet("QGroupBox {font-weight: bold;}")
         self.widgets_Metals_widget = []
         self.build_widgets_Metals_widget()
-        self.box_Metals_widget.resize(256, 106)
+        self.box_Metals_widget.resize(176, 106)
         self.box_Metals_widget.show()
     def build_widgets_Metals_widget(self):
         row = 0
@@ -240,12 +253,12 @@ class MainWindow(QtWidgets.QWidget):
         self.box_Actions_widget = QtWidgets.QGroupBox(self.win)
         self.Actions_widget_group = QtWidgets.QGridLayout()
         self.box_Actions_widget.setLayout(self.Actions_widget_group)
-        self.box_Actions_widget.move(400, 3 * 122 + len(self.widgets_trends) * 31)
-        self.box_Actions_widget.setTitle("Банківські метали")
+        self.box_Actions_widget.move(300, 3 * 122 + len(self.widgets_trends) * 31)
+        self.box_Actions_widget.setTitle("Акції компаній")
         self.box_Actions_widget.setStyleSheet("QGroupBox {font-weight: bold;}")
         self.widgets_Actions_widget = []
         self.build_widgets_Actions_widget()
-        self.box_Actions_widget.resize(256, 106)
+        self.box_Actions_widget.resize(176, 106)
         self.box_Actions_widget.show()
     def build_widgets_Actions_widget(self):
         row = 0
@@ -257,43 +270,120 @@ class MainWindow(QtWidgets.QWidget):
             self.Actions_widget_group.addWidget(self.edit, row, 1)
             self.widgets_Actions_widget.append((self.label, self.edit))
             row += 1
+    def SellMetalsAndAction(self):
+        if fond.portfel == {}:
+            self.sell_box_port = QtWidgets.QGroupBox(self.win)
+            self.sell_port_group = QtWidgets.QHBoxLayout(self.win)
+            self.sell_massege = QtWidgets.QLabel(self.win)
+            self.sell_massege.setText("Інформація про активи відсутня")
+            self.sell_port_group.addWidget(self.sell_massege)
+            self.sell_box_port.setLayout(self.sell_port_group)
+            self.sell_box_port.move(485, 308)
+            self.sell_box_port.setTitle("Продаж активів")
+            self.sell_box_port.resize(265, 56)
+            self.sell_box_port.setStyleSheet("QGroupBox {font-weight: bold;}")
+            self.sell_box_port.show()
+        else:
+            self.sell_box_port = QtWidgets.QGroupBox(self.win)
+            self.sell_port_group = QtWidgets.QGridLayout()
+            self.sell_box_port.setLayout(self.sell_port_group)
+            self.sell_box_port.move(485, 308)
+            self.sell_box_port.setTitle("Продаж активів")
+            self.sell_box_port.setStyleSheet("QGroupBox {font-weight: bold;}")
+            self.sell_widgets = []
+            self.sell_build_widgets_port_fond()
+            self.sell_box_port.resize(200, len(self.widgets) * 31)
+            self.sell_box_port.show()
+
+    def sell_build_widgets_port_fond(self): #
+        row = 0
+        for samp in fond.portfel.keys():
+            if samp[0:8] != 'bank_of_':
+                self.label = QtWidgets.QLabel(samp)
+                self.label.setAlignment(QtCore.Qt.AlignRight)
+                self.sell_port_group.addWidget(self.label, row, 0)
+                self.inf_label = QtWidgets.QLineEdit("0")
+                self.sell_port_group.addWidget(self.inf_label, row, 1)
+                self.sell_widgets.append((self.label, self.inf_label))
+                row += 1
+
+    def create_porfel(self):
+        self.btn_create_portfel = QtWidgets.QPushButton(self.win)
+        self.btn_create_portfel.setText("Сформувати портфель")
+        self.btn_create_portfel.move(600, 670)
+        self.btn_create_portfel.clicked.connect(self.add_portfel)
+        self.btn_create_portfel.show()
+
 
     def on_clicked(self):
-        # if self.push_btn_mounth == 0:
-        #     self.InfoAboutFond()
-        #     h = self.InfoAboutIvestPorfel()
-        #     self.info_profit(h)
-        #     self.GeneretTernds()
-        #     self.Banks_widget()
-        #     self.Metals_widget()
-        #     self.Actions_widget()
-        #     self.push_btn_mounth = 1
-
         self.InfoAboutFond()
         h = self.InfoAboutIvestPorfel()
         self.info_profit(h)
-        self.GeneretTernds()
+        self.GeneretTrends()
         self.Banks_widget()
         self.Metals_widget()
         self.Actions_widget()
-        self.push_btn_mounth = 1
+        self.SellMetalsAndAction()
+        self.create_porfel()
+        for j in self.widgets_Banks_widget:
+            print([j[0].text(), j[1].text()])
         self.btn_mounth.blockSignals(True)
+
+    def add_portfel(self):
+        for samp in self.widgets_Banks_widget:
+            if samp[1].text() != '0':
+                for bank in self.banks:
+                    if bank.bank_name == samp[0].text():
+                        fond.add_bank(samp[0].text(), float(samp[1].text()), 1, bank.bank_period, bank.bank_percent)
+                        break
+        print(fond.portfel)
+        try:
+            self.widgets
+        except AttributeError:
+            self.massege.deleteLater()
+            self.port_group.deleteLater()
+            self.box_port.deleteLater()
+        else:
+            for el in self.widgets:
+                el[0].deleteLater()
+                el[1].deleteLater()
+            self.widgets = []
+            self.port_group.deleteLater()
+            self.box_port.deleteLater()
+
+        self.profit_lbl_1.deleteLater()
+        self.profit_lbl_2.deleteLater()
+        self.profit_lbl_3.deleteLater()
+        self.profit_lbl_4.deleteLater()
+        self.profit_lbl_5.deleteLater()
+        self.profit_lbl_6.deleteLater()
+        self.profit_group.deleteLater()
+        self.box_profit.deleteLater()
+        self.update()
+        h = self.InfoAboutIvestPorfel()
+        #self.repaint()
+        # self.box_port.update()
+        self.info_profit(h)
+        self.update()
+
+
 
 
 
 if __name__ == "__main__":
     fond = ClassFond.Infond()
-    fond.add_bank('pb', 10000, 3, 3, 0.12)
-    fond.add_bank('pb', 10000, 6, 6, 0.12)
-    fond.add_bank('aval', 10000, 6, 6, 0.12)
-    fond.add_bank_metal('gold', 5, 1536)
-    fond.add_bank_metal('plt', 5, 2536)
-    fond.add_actions('metivest', 100, 12.5)
-    fond.setProfit_bank(6)
-    fond.sellMetal('gold', 3, 1245)
-    fond.sellMetal('plt', 2, 1245)
-    fond.sellAction('metivest', 20, 11.5)
+    # fond.add_bank('pb', 10000, 3, 3, 0.12)
+    # fond.add_bank('pb', 10000, 6, 6, 0.12)
+    # fond.add_bank('aval', 10000, 6, 6, 0.12)
+    # fond.add_bank_metal('gold', 5, 1536)
+    # fond.add_bank_metal('plt', 5, 2536)
+    # fond.add_actions('metivest', 100, 12.5)
+    # fond.setProfit_bank(6)
+    # fond.sellMetal('gold', 3, 1245)
+    # fond.sellMetal('plt', 2, 1245)
+    # fond.sellAction('metivest', 20, 11.5)
     app = QtWidgets.QApplication(sys.argv)
     win = MainWindow()
+
 
     sys.exit(app.exec_())

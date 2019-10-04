@@ -42,9 +42,17 @@ class Infond:
         for i in self.portfel.keys():
             if i[0:8] == 'bank_of_':
                 for j in self.portfel[i]:
+                    lst_depoz = []
                     if month == j[1] + j[2]:
                         self.profit = self.profit + round(j[0] * j[3], 2)
                         self.capital += j[0]
+                        lst_depoz.append(j)
+                    # print(lst_depoz)
+                    for k in lst_depoz:
+                        self.portfel[i].remove(k)
+                print(self.portfel)
+                if self.portfel[i] == []:
+                    self.portfel.pop(i)
     def sellMetal(self, name, count, price_metal):
         if name in [self.portfel.keys()]:
             if count > self.portfel[name]:
@@ -73,7 +81,12 @@ class BankMetal:
     def __init__(self):
         name_list = ['gold', 'platinum', 'silver']
         self.BankMetal_name = name_list[random.randint(0, 2)]
-        self.BankMetal_price = 1536 + round(300 * random.random() * random.choice([-1,0,1]))
+        if self.BankMetal_name == 'gold':
+            self.BankMetal_price = 1536 + round(300 * random.random() * random.choice([-1,0,1]))
+        elif self.BankMetal_name == 'platinum':
+            self.BankMetal_price = 2346 + round(300 * random.random() * random.choice([-1, 0, 1]))
+        else:
+            self.BankMetal_price = 21 + round(4 * random.random() * random.choice([-1, 0, 1]))
 class Actions:
     def __init__(self):
         name_list = ['metivest', 'ukrtelecom', 'kyivstar']
