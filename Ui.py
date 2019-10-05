@@ -21,9 +21,7 @@ class MainWindow(QtWidgets.QWidget):
         self.btn_mounth = QtWidgets.QPushButton(self.win)
         self.btn_mounth.setText("Задати період")
         self.btn_mounth.setStyleSheet("QPushButton {font-weight: bold;}")
-        self.push_btn_mounth = 0
         self.btn_mounth.clicked.connect(self.on_clicked)
-
         self.group = QtWidgets.QGroupBox(self.win)
         self.head_group = QtWidgets.QHBoxLayout(self.win)
         self.head_group.addWidget(self.text_hd)
@@ -95,8 +93,8 @@ class MainWindow(QtWidgets.QWidget):
             self.build_widgets_port_fond()
             if len(self.widgets) == 1:
                 h = 58
-            elif len(self.widgets) == 1:
-                h = 48
+            elif len(self.widgets) == 2:
+                h = 44
             else:
                 h = 32
             self.box_port.resize(265, len(self.widgets) * h)
@@ -107,10 +105,10 @@ class MainWindow(QtWidgets.QWidget):
         for samp in fond.portfel.keys():
             if samp[0:8] == 'bank_of_':
                 for note in fond.portfel[samp]:
-                    self.label = QtWidgets.QLabel(samp)
+                    self.label = QtWidgets.QLabel(samp[8:])
                     self.label.setAlignment(QtCore.Qt.AlignRight)
                     self.port_group.addWidget(self.label, row, 0)
-                    self.inf_label = QtWidgets.QLabel(str(note[0]) + "$, " + str(note[2]) + " months, " + str(note[3]) + "%")
+                    self.inf_label = QtWidgets.QLabel(str(note[0]) + "$, " + str(note[2]) + " months, " + str(note[3]*100) + "%")
                     self.port_group.addWidget(self.inf_label, row, 1)
                     self.widgets.append((self.label, self.inf_label))
                     row += 1
@@ -336,6 +334,18 @@ class MainWindow(QtWidgets.QWidget):
                     if bank.bank_name == samp[0].text():
                         fond.add_bank(samp[0].text(), float(samp[1].text()), 1, bank.bank_period, bank.bank_percent)
                         break
+        for samp_m in self.widgets_Metals_widget:
+            if samp_m[1].text() != '0':
+                for metal in self.metals:
+                    if metal.BankMetal_name == samp_m[0].text():
+                        fond.add_bank_metal(samp_m[0].text(), float(samp_m[1].text()), metal.BankMetal_price)
+                        break
+        for samp_act in self.widgets_Actions_widget:
+            if samp_act[1].text() != '0':
+                for action in self.actions:
+                    if action.Actions_name == samp_act[0].text():
+                        fond.add_actions(samp_act[0].text(), float(samp_act[1].text()), action.Actions_price)
+                        break
         print(fond.portfel)
         try:
             self.widgets
@@ -364,6 +374,7 @@ class MainWindow(QtWidgets.QWidget):
         #self.repaint()
         # self.box_port.update()
         self.info_profit(h)
+        self.i_group.update()
         self.update()
 
 
