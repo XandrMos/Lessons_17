@@ -16,11 +16,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Ui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="344" column="45" lean-forward="true" selection-start-line="344" selection-start-column="45" selection-end-line="344" selection-end-column="45" />
+            <state relative-caret-position="186">
+              <caret line="380" column="29" selection-start-line="378" selection-start-column="4" selection-end-line="381" selection-end-column="47" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Task.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="6" column="28" lean-forward="true" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -56,10 +65,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="351" />
-    <option name="y" value="175" />
-    <option name="width" value="1380" />
-    <option name="height" value="1039" />
+    <option name="x" value="497" />
+    <option name="y" value="98" />
+    <option name="width" value="1040" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -186,7 +195,7 @@
       <option name="presentableId" value="Default" />
       <updated>1569415595550</updated>
       <workItem from="1569415596891" duration="6080000" />
-      <workItem from="1569609005620" duration="43597000" />
+      <workItem from="1569609005620" duration="47737000" />
     </task>
     <task id="LOCAL-00001" summary="Add bold style for main button">
       <created>1569613907385</created>
@@ -230,11 +239,18 @@
       <option name="project" value="LOCAL" />
       <updated>1570231732012</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Create portfel for fond">
+      <created>1570274154840</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1570274154840</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49677000" />
+    <option name="totallyTimeSpent" value="53817000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -246,10 +262,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2533512" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1300268" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -307,15 +323,16 @@
     <MESSAGE value="Auto biuld widgets" />
     <MESSAGE value="Block signals" />
     <MESSAGE value="Create New Button" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create New Button" />
+    <MESSAGE value="Create portfel for fond" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create portfel for fond" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Ui.py</url>
-          <line>373</line>
-          <option name="timeStamp" value="17" />
+          <line>379</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -330,7 +347,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/PyQt5_03$ClassFond.coverage" NAME="ClassFond Coverage Results" MODIFIED="1569662015231" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PyQt5_03$Task1.coverage" NAME="Task1 Coverage Results" MODIFIED="1570217659906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../Homework_ls_11/Maryna" />
-    <SUITE FILE_PATH="coverage/PyQt5_03$Ui.coverage" NAME="Ui Coverage Results" MODIFIED="1570274052349" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PyQt5_03$Ui.coverage" NAME="Ui Coverage Results" MODIFIED="1570279199572" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/codecs.py">
@@ -344,13 +361,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="221" selection-start-line="221" selection-end-line="221" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Task.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="28" lean-forward="true" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -390,10 +400,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Task.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="28" lean-forward="true" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/python_stubs/332669817/PyQt5/QtWidgets/QWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="503" column="8" selection-start-line="503" selection-start-column="8" selection-end-line="503" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Ui.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="344" column="45" lean-forward="true" selection-start-line="344" selection-start-column="45" selection-end-line="344" selection-end-column="45" />
+        <state relative-caret-position="186">
+          <caret line="380" column="29" selection-start-line="378" selection-start-column="4" selection-end-line="381" selection-end-column="47" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>

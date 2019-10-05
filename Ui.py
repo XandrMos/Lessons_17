@@ -371,11 +371,13 @@ class MainWindow(QtWidgets.QWidget):
         self.box_profit.deleteLater()
         self.update()
         h = self.InfoAboutIvestPorfel()
-        #self.repaint()
-        # self.box_port.update()
+
         self.info_profit(h)
         self.i_group.update()
         self.update()
+
+
+
 
 
 
